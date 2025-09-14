@@ -1,13 +1,3 @@
--- Insert continents
-INSERT INTO continents (full_name) VALUES
-    ('Europe'),
-    ('Asia'),
-    ('Africa'),
-    ('North America'),
-    ('South America'),
-    ('Oceania');
-
-
 -- Insert countries
 INSERT INTO countries (uuid, full_name, country_code, continent_id) VALUES
     (gen_random_uuid(), 'Algeria', 'DZ', 3),
@@ -64,6 +54,3 @@ INSERT INTO countries (uuid, full_name, country_code, continent_id) VALUES
     (gen_random_uuid(), 'Venezuela', 'VE', 5),
     (gen_random_uuid(), 'Wales', 'GB', 1),
     (gen_random_uuid(), 'Zimbabwe', 'ZW', 3);
-
-
-
