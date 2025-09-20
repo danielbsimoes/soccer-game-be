@@ -39,8 +39,8 @@ INSERT INTO countries (uuid, full_name, country_code, continent_id) VALUES
     (gen_random_uuid(), 'Romania', 'RO', 1),
     (gen_random_uuid(), 'Russia', 'RU', 2), -- Note: Russia is in Europe and Asia
     (gen_random_uuid(), 'Saudi Arabia', 'SA', 2),
-    (gen_random_uuid(), 'Senegal', 'SN', 3),
     (gen_random_uuid(), 'Scotland', 'GB', 1),
+    (gen_random_uuid(), 'Senegal', 'SN', 3),
     (gen_random_uuid(), 'South Africa', 'ZA', 3),
     (gen_random_uuid(), 'South Korea', 'KR', 2),
     (gen_random_uuid(), 'Spain', 'ES', 1),
