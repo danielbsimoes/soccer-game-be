@@ -25,10 +25,9 @@ export function generateValue(rating, age, options = {}) {
 
     // Comment out after this point to see the pure rating and age based value
     // Add some randomness to the value - percentage between -25% and +25%
-    // const randomness = (Math.random() * 2 - 1) * RANDOMNESS_FACTOR; // Random value between -0.25 and +0.25
-    // const finalValue =  ratingAndAgeValue * (1 + randomness);
+    const randomness = (Math.random() * 2 - 1) * RANDOMNESS_FACTOR; // Random value between -0.25 and +0.25
+    const finalValue =  ratingAndAgeValue * (1 + randomness);
 
-    const finalValue = ratingAndAgeValue; // Without randomness - debug purposes only
     // Make sure the final value is within the defined bounds
     if (finalValue < MIN_VALUE) {
         return stringifyValue(MIN_VALUE);
