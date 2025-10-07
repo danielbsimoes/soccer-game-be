@@ -30,23 +30,12 @@ export function generateValue(rating, age, options = {}) {
 
     // Make sure the final value is within the defined bounds
     if (finalValue < MIN_VALUE) {
-        return stringifyValue(MIN_VALUE);
+        return MIN_VALUE;
     }
 
     else if (finalValue > MAX_VALUE) {
-        return stringifyValue(MAX_VALUE);
+        return MAX_VALUE;
     }
 
-    return stringifyValue(finalValue);
-}
-
-
-function stringifyValue(value) {
-    if (value >= 1_000_000) {
-        return (value / 1_000_000).toFixed(1).replace(/\.0$/, '') + 'M';
-    } else if (value >= 1_000) {
-        return (value / 1_000).toFixed(1).replace(/\.0$/, '') + 'K';
-    } else {
-        return value.toFixed(1);
-    }
+    return finalValue;
 }
