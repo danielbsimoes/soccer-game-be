@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS player (
 CREATE TYPE staff_position AS ENUM ('Coach', 'Scout', 'Public Relations');
 
 
--- Create players table
+-- Create staff table
 CREATE TABLE IF NOT EXISTS staff (
       uuid UUID NOT NULL PRIMARY KEY,
       first_name_uuid UUID REFERENCES names(uuid) ON DELETE CASCADE,
