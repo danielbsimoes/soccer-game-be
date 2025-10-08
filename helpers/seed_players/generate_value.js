@@ -15,9 +15,12 @@ export function generateValue(rating, age, options = {}) {
 
 
     // Make sure that the age influences slightly the value
-    const ageGap = age - AGE_PEAK;
-    if (ageGap > 0) { // Older than peak age, more influence
-        AGE_FACTOR *= 2;
+    let ageGap = 1; // Default age gap to avoid division by zero
+    if (AGE_PEAK !== -1 ) { // Option set to -1 to disable age influence
+        ageGap = age - AGE_PEAK;
+        if (ageGap > 0) { // Older than peak age, more influence
+            AGE_FACTOR *= 2;
+        }
     }
 
     const ageInfluence = 1 + (Math.abs(ageGap) - 1) * AGE_FACTOR;
