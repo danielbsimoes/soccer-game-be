@@ -25,5 +25,9 @@ node ../helpers/seed_players/seed_player_data.js
 if you want to debug stuff or adapt the calculations for the wage and value, use the files inside the debug folder.
 
 
+## Final step:
+Run all the remaining generated sql files in the `scripts` folder, in order.
+
+
 
 
