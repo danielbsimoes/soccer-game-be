@@ -1,0 +1,23 @@
+How to populate the database with data
+=======================
+Run every sql by order, up to the 03-seed-data-countries.sql (including that one).
+
+⚠️ 04 and 05 need to be generated everytime, because they depend on the data in the previous scripts.
+
+## Generate 04-seed-data-names.sql:
+Run the following command:
+```bash 
+node /helpers/seed_names/import_names_json_file.js
+```
+**Requirements:** a `names_grouped_by_country.json` file in the `/helpers/seed_names/` folder
+
+## Generate 05-seed-data-players.sql:
+Run the following command: 
+```bash 
+node /helpers/seed_players/seed_player_data.js
+```
+if you want to debug stuff or adapt the calculations for the wage and value, use the files inside the debug folder.
+
+
+
+
