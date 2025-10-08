@@ -8,6 +8,18 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 let output = 'INSERT INTO player (uuid, first_name_uuid, last_name_uuid, position, rating, age, wage, value, mood) VALUES\n';
 
+const valueOpts = {
+    BASE_VALUE: 1_000,
+    MIN_VALUE: 500,
+    MAX_VALUE: 30_000_000,
+    AGE_PEAK: 26,
+    RATING_FACTOR: 0.0275,
+    LOWEST_RATING_BOOST_FACTOR: 10,
+    AGE_FACTOR: 0.015,
+    RANDOMNESS_FACTOR: 0.15,
+    ENABLE_AGE_INFLUENCE: true
+}
+
 const wageOpts = {
     BASE_VALUE: 100,
     MIN_VALUE: 50,
@@ -15,8 +27,8 @@ const wageOpts = {
     AGE_PEAK: 26,
     RATING_FACTOR: 0.005,
     LOWEST_RATING_BOOST_FACTOR: 7,
-    AGE_FACTOR: 0,
-    RANDOMNESS_FACTOR: 0.15
+    RANDOMNESS_FACTOR: 0.15,
+    ENABLE_AGE_INFLUENCE: false
 };
 
 const countryQuery = 'SELECT uuid FROM countries;'
@@ -40,7 +52,7 @@ for (let countryObject of countryQueryResult) {
         const rating = Math.floor(Math.random() * (100 - 1 + 1)) + 1 // random rating between 1 and 100
         const age = Math.floor(Math.random() * (37 - 16 + 1)) + 16; // random age between 16 and 37
         const wage = generateValue(rating, age, wageOpts);
-        const value = generateValue(rating, age);
+        const value = generateValue(rating, age, valueOpts);
         const mood = ['Angry', 'Sad', 'Content', 'Happy', 'Excited'][Math.floor(Math.random() * 5)];
 
 

@@ -9,8 +9,8 @@ const opts = {
     AGE_PEAK: 26,
     RATING_FACTOR: 0.005,
     LOWEST_RATING_BOOST_FACTOR: 7,
-    AGE_FACTOR: 0,
-    RANDOMNESS_FACTOR: 0.15
+    RANDOMNESS_FACTOR: 0.15,
+    ENABLE_AGE_INFLUENCE: false
 };
 
 for (let i=0; i<rating.length; i++) {

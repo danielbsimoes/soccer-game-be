@@ -3,10 +3,22 @@ import { generateValue } from "../../generate_value.js";
 const rating = [1,2, 3,4, 5, 12, 24, 32, 45, 58, 64, 71, 72, 88, 96, 99, 100];
 const age = [16, 19, 22, 25, 26, 28, 30, 31, 33, 35, 37];
 
+const valueOpts = {
+    BASE_VALUE: 1_000,
+    MIN_VALUE: 500,
+    MAX_VALUE: 30_000_000,
+    AGE_PEAK: 26,
+    RATING_FACTOR: 0.0275,
+    LOWEST_RATING_BOOST_FACTOR: 10,
+    AGE_FACTOR: 0.015,
+    RANDOMNESS_FACTOR: 0.15,
+    ENABLE_AGE_INFLUENCE: true
+}
+
 for (let i=0; i<rating.length; i++) {
     console.log(`\n--- Rating: ${rating[i]} ---`);
     for (let j=0; j<age.length; j++) {
-        const value = stringifyValue(generateValue(rating[i], age[j]));
+        const value = stringifyValue(generateValue(rating[i], age[j], valueOpts));
         console.log(`Age: ${age[j]}, Rating: ${rating[i]} => Value: ${value}`);
     }
 }

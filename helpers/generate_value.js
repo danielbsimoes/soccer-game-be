@@ -7,6 +7,7 @@ export function generateValue(rating, age, options = {}) {
     const LOWEST_RATING_BOOST_FACTOR = options.LOWEST_RATING_BOOST_FACTOR ? options.LOWEST_RATING_BOOST_FACTOR : 10; // Factor to avoid "no-variation" value on lower rated players
     let AGE_FACTOR = options.AGE_FACTOR ? options.AGE_FACTOR : 0.015; // Factor to adjust age influence
     const RANDOMNESS_FACTOR = options.RANDOMNESS_FACTOR ? options.RANDOMNESS_FACTOR : 0.15; // Factor to adjust randomness influence
+    const ENABLE_AGE_INFLUENCE = options.ENABLE_AGE_INFLUENCE ? options.ENABLE_AGE_INFLUENCE : true;
 
     // Rating is the most important factor, so we use a quadratic scale
     let ratingValue = BASE_VALUE * Math.pow(rating, 2);
@@ -16,7 +17,7 @@ export function generateValue(rating, age, options = {}) {
 
     // Make sure that the age influences slightly the value
     let ageGap = 1; // Default age gap to avoid division by zero
-    if (AGE_PEAK !== -1 ) { // Option set to -1 to disable age influence
+    if (ENABLE_AGE_INFLUENCE) { // Only apply age influence if not disabled
         ageGap = age - AGE_PEAK;
         if (ageGap > 0) { // Older than peak age, more influence
             AGE_FACTOR *= 2;
