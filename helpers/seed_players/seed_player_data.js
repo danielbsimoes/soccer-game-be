@@ -2,7 +2,7 @@ import {runSqlFile} from "../execute_sql.js";
 import {writeFileSync} from "fs";
 import path from "node:path";
 import {fileURLToPath} from "node:url";
-import {generateValue} from "./generate_value.js";
+import {generateValue} from "../generate_value.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
