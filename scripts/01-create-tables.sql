@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS names (
 );
 
 -- Create player_position enum
-CREATE TYPE player_position AS ENUM ('GK', 'DEF', 'MID', 'FWD');
+CREATE TYPE player_position AS ENUM ('GK', 'DF', 'MF', 'FW');
 
 -- Create mood enum
 CREATE TYPE mood AS ENUM ('Angry', 'Sad', 'Content', 'Happy', 'Excited');
@@ -59,24 +59,24 @@ CREATE TABLE IF NOT EXISTS staff (
 );
 
 -- Create views for players and staff
-/*
-CREATE VIEW player_view
-    AS
-    SELECT p.uuid AS player_uuid,
-           n1.name AS first_name,
-           n2.name AS last_name,
-           p.position,
-           p.rating,
-           p.age,
-           p.wage,
-           p.value,
-           p.mood
-    FROM player p,
-         names n2
-    JOIN names n1 ON p.first_name_uuid = n1.uuid
+
+CREATE VIEW view_player
+AS
+SELECT p.uuid AS player_uuid,
+       n1.name AS first_name,
+       n2.name AS last_name,
+       p.position,
+       p.rating,
+       p.age,
+       p.wage,
+       p.value,
+       p.mood
+FROM player p
+JOIN names n1 ON p.first_name_uuid = n1.uuid
+JOIN names n2 ON p.last_name_uuid = n2.uuid;
 
 
-CREATE VIEW staff_view
+CREATE VIEW view_staff
 AS
 SELECT s.uuid AS player_uuid,
        n1.name AS first_name,
@@ -86,7 +86,6 @@ SELECT s.uuid AS player_uuid,
        s.age,
        s.wage,
        s.mood
-FROM staff s,
-     names n2
-    JOIN names n1 ON s.first_name_uuid = n1.uuid
-*/
+FROM staff s
+JOIN names n1 ON s.first_name_uuid = n1.uuid
+JOIN names n2 ON s.last_name_uuid = n2.uuid;
