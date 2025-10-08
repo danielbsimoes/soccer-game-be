@@ -50,3 +50,4 @@ for (let countryObject of countryQueryResult) {
 
 output = output.replace(/,\n$/, ';');
 writeFileSync(path.join(__dirname, '../../scripts/05-seed-data-players.sql'), output, 'utf8')
+console.log("All done!");
