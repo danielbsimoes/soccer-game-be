@@ -1,2 +1,5 @@
 .idea
 node_modules
+
+scripts/04-seed-data-names.sql
+scripts/05-seed-data-names.sql
