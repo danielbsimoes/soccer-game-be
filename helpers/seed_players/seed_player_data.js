@@ -44,8 +44,8 @@ for (let countryObject of countryQueryResult) {
     const lastNameQuery = `SELECT uuid FROM names WHERE country_uuid='${countryUuid}' AND type='last_name';`
     const lastNameQueryResult = await runSqlFile(lastNameQuery);
 
-    // We can have 400 unique combinations of first and last names aka 400 max
-    for (let i=0; i<5; i++) {
+    // We can have 400 unique combinations of first and last names (20 unique first names * 20 unique last names, per country) aka 400 max
+    for (let i=0; i<250; i++) {
         const randomFirstName = Math.floor(Math.random() * firstNameQueryResult.length);
         const randomLastName = Math.floor(Math.random() * lastNameQueryResult.length);
         const position = ['GK', 'DF', 'MF', 'FW'][Math.floor(Math.random() * 4)]; // random position
