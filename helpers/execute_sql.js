@@ -2,13 +2,13 @@
 import {Client} from "pg";
 
 export async function runSqlFile(query, returnRowsOnly = true) {
-    //TODO: save these secrets in environment variables
+    console.log("ENV Vars" + process.env.DB_USER);
     const client = new Client({
-        user: 'admin',
-        host: 'localhost',
-        database: 'soccer_game',
-        password: 'admin',
-        port: 55000,
+        user: process.env.DB_USER,
+        host: process.env.DB_HOST,
+        database: process.env.DB_NAME,
+        password: process.env.DB_PASSWORD,
+        port: process.env.DB_PORT,
     });
 
     try {
