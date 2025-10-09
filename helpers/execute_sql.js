@@ -1,7 +1,8 @@
 // execute_sql.js
 import {Client} from "pg";
 
-export async function runSqlFile(query) {
+export async function runSqlFile(query, returnRowsOnly = true) {
+    //TODO: save these secrets in environment variables
     const client = new Client({
         user: 'admin',
         host: 'localhost',
@@ -13,8 +14,8 @@ export async function runSqlFile(query) {
     try {
         await client.connect();
         const result = await client.query(query);
-        /*console.log('SQL file executed successfully.');*/
-        return result.rows;
+
+        return returnRowsOnly ? result.rows : result;
     } catch (err) {
         console.error('Error executing SQL file:', err);
     } finally {
