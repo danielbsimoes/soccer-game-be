@@ -1,8 +1,8 @@
-import {runSqlFile} from "../execute_sql.js";
+import {runSqlFile} from "../../execute_sql.js";
 import {writeFileSync} from "fs";
 import path from "node:path";
 import {fileURLToPath} from "node:url";
-import {generateValue} from "../generate_value.js";
+import {generateValue} from "../utils/generate_value.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -61,5 +61,5 @@ for (let countryObject of countryQueryResult) {
 }
 
 output = output.replace(/,\n$/, ';');
-writeFileSync(path.join(__dirname, '../../scripts/05-seed-data-players.sql'), output, 'utf8')
+writeFileSync(path.join(__dirname, '../../../scripts/05-seed-data-players.sql'), output, 'utf8')
 console.log("All done!");

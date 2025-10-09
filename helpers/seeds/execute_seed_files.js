@@ -1,5 +1,5 @@
 import fs from "fs";
-import {runSqlFile} from "./execute_sql.js";
+import {runSqlFile} from "../execute_sql.js";
 
 const args = process.argv.slice(2);
 

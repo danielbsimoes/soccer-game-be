@@ -1,5 +1,5 @@
 import fs, {writeFileSync} from "fs";
-import {runSqlFile} from "../execute_sql.js";
+import {runSqlFile} from "../../execute_sql.js";
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -43,7 +43,7 @@ output = output.replace(/,\n$/, ';');
 /*console.log("----------Final output:----------");
 console.log(output);*/
 
-writeFileSync(path.join(__dirname, '../../scripts/04-seed-data-names.sql'), output, 'utf8')
+writeFileSync(path.join(__dirname, '../../../scripts/04-seed-data-names.sql'), output, 'utf8')
 
 console.log("All done!");
 
