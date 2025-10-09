@@ -24,6 +24,12 @@ node ../helpers/seeds/player/seed_player_data.js
 ```
 if you want to debug stuff or adapt the calculations for the wage and value, use the files inside the debug folder.
 
+## Generate 06-seed-data-staff.sql:
+Run the following command:
+```bash 
+node ../helpers/seeds/staff/seed_staff_data.js
+```
+Similar comment related to debugging stuff or adapting calculations, as in the previous step.
 
 ## Final step:
 Run all the remaining generated sql files in the `scripts` folder, in order.
