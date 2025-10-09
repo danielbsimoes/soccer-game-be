@@ -16,7 +16,8 @@ node ${helperSeedsFolder}/execute_seed_files.js ${scriptsFolder}/04-seed-data-na
 echo "Generating players seed..."
 node ${helperSeedsFolder}/player/seed_player_data.js
 
-# TODO: Generate staff seed
+echo "Generating staff seed..."
+node ${helperSeedsFolder}/staff/seed_staff_data.js
 
 echo "Executing all other sql seeds..."
-node ${helperSeedsFolder}/execute_seed_files.js ${scriptsFolder}/05-seed-data-players.sql
+node ${helperSeedsFolder}/execute_seed_files.js ${scriptsFolder}/05-seed-data-players.sql ${scriptsFolder}/06-seed-data-staff.sql
