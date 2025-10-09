@@ -70,6 +70,7 @@ AS
 SELECT p.uuid  AS player_uuid,
        n1.name AS first_name,
        n2.name AS last_name,
+       c.country_code AS country,
        p.position,
        p.rating,
        p.age,
@@ -78,7 +79,8 @@ SELECT p.uuid  AS player_uuid,
        p.mood
 FROM player p
          JOIN names n1 ON p.first_name_uuid = n1.uuid
-         JOIN names n2 ON p.last_name_uuid = n2.uuid;
+         JOIN names n2 ON p.last_name_uuid = n2.uuid
+         JOIN countries c ON c.uuid = n1.country_uuid;
 
 
 CREATE VIEW view_staff
@@ -86,6 +88,7 @@ AS
 SELECT s.uuid  AS player_uuid,
        n1.name AS first_name,
        n2.name AS last_name,
+       c.country_code AS country,
        s.position,
        s.rating,
        s.age,
@@ -93,4 +96,5 @@ SELECT s.uuid  AS player_uuid,
        s.mood
 FROM staff s
          JOIN names n1 ON s.first_name_uuid = n1.uuid
-         JOIN names n2 ON s.last_name_uuid = n2.uuid;
+         JOIN names n2 ON s.last_name_uuid = n2.uuid
+         JOIN countries c ON c.uuid = n1.country_uuid;
