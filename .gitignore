@@ -1,5 +1,6 @@
 .idea
 node_modules
+.env
 
 scripts/04-seed-data-names.sql
 scripts/05-seed-data-players.sql
