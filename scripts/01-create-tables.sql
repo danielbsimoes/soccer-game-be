@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS countries
     uuid         UUID NOT NULL PRIMARY KEY,
     full_name    TEXT,
     country_code TEXT,
+    flag         TEXT,
     continent_id SERIAL REFERENCES continents (id) ON DELETE CASCADE
 );
 
