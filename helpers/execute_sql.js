@@ -2,7 +2,6 @@
 import {Client} from "pg";
 
 export async function runSqlFile(query, returnRowsOnly = true) {
-    console.log("ENV Vars" + process.env.DB_USER);
     const client = new Client({
         user: process.env.DB_USER,
         host: process.env.DB_HOST,
